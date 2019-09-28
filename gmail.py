@@ -3,12 +3,23 @@ from bs4 import BeautifulSoup
 import time
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import WebDriverException
+from notify_run import Notify
 
 driver = webdriver.Chrome();
 
 
 user = "cgupta3131@gmail.com"
 passw = "Fidato@27"
+
+def push_notification():
+    notify = Notify()
+    pnmsg = "Your emails are being deleted"
+    notify.send(pnmsg)
+    print("HEY AMLAN, PUSH NOTIFICATION HAS BEEN SENT SUCCESSFULLY.")
+    
+    print("Check again after an hour.")
+
+    return 1
 
 def loginAuth():
 	url = "https://accounts.google.com"
@@ -49,6 +60,7 @@ def SocialDelete():
 
 	try:
 		delete_btn.click()
+		push_notification()
 		print("Element Clickable")
 	except WebDriverException:
 	    print("Element is not clickable")
@@ -66,9 +78,13 @@ def PromoDelete():
 
 	try:
 		delete_btn.click()
+		push_notification()
 		print("Element Clickable")
 	except WebDriverException:
-	    print("Element is not clickable")
+		print("Element is not clickable")
+		
+
+
 
 loginAuth()
 while(True):
