@@ -15,9 +15,6 @@ def push_notification():
     notify = Notify()
     pnmsg = "Your emails are being deleted"
     notify.send(pnmsg)
-    print("HEY AMLAN, PUSH NOTIFICATION HAS BEEN SENT SUCCESSFULLY.")
-    
-    print("Check again after an hour.")
 
     return 1
 
